@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -45,10 +46,20 @@ func callBack(w http.ResponseWriter, req *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
+
+				// extract message details
+				fmt.Printf("reply channel:%s, msg:%s, user id:%s\n", event.ReplyToken, message.Text,
+					event.Source.UserID)
+
+				// reply
+				if _, err = bot.ReplyMessage(event.ReplyToken,
+					linebot.NewTextMessage(message.Text)).Do(); err != nil {
 					log.Print(err)
 				}
+
 			}
 		}
+
 	}
+	return
 }
