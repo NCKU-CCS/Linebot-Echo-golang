@@ -1,0 +1,4 @@
+{
+	"CHANNEL_SECRET":"<your secret>",
+	"CHANNEL_ACCESS_TOKEN":"<your accesss token>"
+}
