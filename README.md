@@ -2,6 +2,7 @@ Linebot Golang Echo
 ===================
 使用 golang 製作的 linebot
 
+這份資料是我在系上分享的：[如何架設 LINE BOT](https://hackmd.io/s/SyJUciYWg)
 
 Development Note
 ----------------
